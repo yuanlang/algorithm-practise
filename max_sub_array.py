@@ -42,33 +42,38 @@ def maxSubsetSum_list(arr):
     # print(result)
     return max(result)
 
-#note:
-# 1. store the max value of all previous position instead of current postion
-# 2. compute the max from tail to head, instead of from head to tail
-
-
-def maxSubsetSum(arr):
+#List to dict version. still timeout
+def maxSubsetSum_dict(arr):
     length = len(arr)
     result = {}
     # convert list to dict
     dict_arr = {k: v for k, v in enumerate(arr)}
-    # result = [-0x7fffffff] * length
-    # for i in range(length):
-    #     result.append()
     result[0] = dict_arr[0]
-    result[1] = max(dict_arr[0], dict_arr[1])
-    # max0 = result[0]
-    # max1 = result[1]
+    result[1] = dict_arr[1]
     for i in range(2, length):
-        num = dict_arr[i]
+        q = dict_arr[i]
+        for j in range(2, i+1):
+            q = max(q, dict_arr[i] + result[i-j])
+        result[i] = q
+
+    # print(result)
+    return max(result.values())
+
+#Final version
+#note:
+# 1. store the max value of all previous position instead of current postion
+# 2. compute the max from tail to head, instead of from head to tail
+def maxSubsetSum(arr):
+    length = len(arr)
+    result = {}
+    result[0] = arr[0]
+    result[1] = max(arr[0], arr[1])
+    for i, num in enumerate(arr[2:], start=2):
         result[i] = max(result[i-1], result[i-2]+num, result[i-2], num)
-        # q = dict_arr[i]
-        # for j in range(2, i+1):
-        #     q = max(q, dict_arr[i] + result[i-j])
-        # result[i] = q
 
     # print(result)
     return result[length-1]
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
