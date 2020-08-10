@@ -1,4 +1,11 @@
-price = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
+# Problem from introduction of algorithm dynamic grammamming
+# Description:
+# Given a rod of length n inches and a table of prices pi for i D 1; 2; : : : ; n, 
+# determine the maximum revenue rn obtain- able by cutting up the rod and selling 
+# the pieces. Note that if the price pn for a rod of length n is large enough, 
+# an optimal solution may require no cutting at all.
+length = [0, 1, 2, 3, 4, 5,  6,  7,  8,  9,  10]
+price  = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
 
 def cut_rob_recursive(p, n):
     if n == 0:

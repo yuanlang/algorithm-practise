@@ -1,5 +1,20 @@
 #!/bin/python3
 
+# Link of hacker rand problem:
+# https://www.hackerrank.com/challenges/max-array-sum/problem?h_l=interview&isFullScreen=false&playlist_slugs%5B%5D%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D%5B%5D=dynamic-programming
+# Description:
+# Given an array of integers, find the subset of non-adjacent elements with the maximum sum. Calculate the sum of that subset.
+# For example, given an array  we have the following possible subsets:
+# Subset      Sum
+# [-2, 3, 5]   6
+# [-2, 3]      1
+# [-2, -4] - 6
+# [-2, 5]      3
+# [1, -4] - 3
+# [1, 5]       6
+# [3, 5]       8
+# Our maximum subset sum is 8.
+
 import math
 import os
 import random
