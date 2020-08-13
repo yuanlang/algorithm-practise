@@ -1,7 +1,8 @@
 # You are given pointer to the root of the binary search tree and two values v1 and v2. 
 # You need to return the lowest common ancestor(LCA) of v1 and v2 in the binary search tree.
 # Function Description
-# Complete the function lca in the editor below. It should return a pointer to the lowest common ancestor node of the two values given.
+# Complete the function lca in the editor below. 
+# It should return a pointer to the lowest common ancestor node of the two values given.
 # lca has the following parameters:
 # - root: a pointer to the root node of a binary search tree
 # - v1: a node.data value
@@ -49,6 +50,12 @@ class BinarySearchTree:
                 else:
                     break
 
+    def print_tree(self, node):
+        if node != None:
+            print(node.info)
+            self.print_tree(node.left)
+            self.print_tree(node.right)
+
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 '''
@@ -81,6 +88,8 @@ for i in range(t):
     tree.create(arr[i])
 
 v = list(map(int, input().split()))
+
+tree.print_tree(tree.root)
 
 ans = lca(tree.root, v[0], v[1])
 print(ans.info)

@@ -46,12 +46,10 @@ class BinarySearchTree:
                 else:
                     break
     def print_tree(self, node):
-        if node == None:
-            return
         if node != None:
             print(node.info)
-        self.print_tree(node.left)
-        self.print_tree(node.right)
+            self.print_tree(node.left)
+            self.print_tree(node.right)
 
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
