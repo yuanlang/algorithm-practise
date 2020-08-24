@@ -9,8 +9,6 @@ using namespace std;
 *    Print each element of the generic vector on a new line. Do not return anything.
 *    @param A generic vector
 **/
-
-// print each element of its generic array parameter on a new line.
 template <class T>
 void printArray(vector<T> a) {
     for (int i = 0; i < a.size(); i++) {
