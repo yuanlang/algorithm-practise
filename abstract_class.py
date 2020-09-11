@@ -37,7 +37,7 @@ class Book(object, metaclass=ABCMeta):
         self.author = author
 
     @abstractmethod
-    def display(): pass
+    def display(self): pass
 
 #Write MyBook class
 
