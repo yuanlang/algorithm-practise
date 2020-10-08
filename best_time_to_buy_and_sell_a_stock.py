@@ -24,7 +24,7 @@
 from typing import List
 
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfitSlow(self, prices: List[int]) -> int:
         n = len(prices)
         if n < 2:
             return 0
@@ -57,6 +57,17 @@ class Solution:
         print(profit)
         return profit[-1]
 
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        if n < 2:
+            return 0
+        min_price = 0xffffffff
+        max_profit = 0
+        for price in prices:
+            max_profit = max(price - min_price, max_profit)
+            min_price = min(min_price, price)
+
+        return max_profit
 
 if __name__ == "__main__":
     s = Solution()
