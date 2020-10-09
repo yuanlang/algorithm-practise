@@ -82,6 +82,7 @@ class Solution:
             result = int(new_str)
         if sign == True:
             result = -result
+
         if result > 0x7fffffff:
             return 0x7fffffff
         if result < -0x80000000:
