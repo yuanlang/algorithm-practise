@@ -17,6 +17,7 @@
 # 解释: 输入不存在公共前缀。
 # 说明:
 
+
 # 作者：力扣 (LeetCode)
 # 链接：https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnmav1/
 # 来源：力扣（LeetCode）
@@ -44,13 +45,11 @@ class Solution:
             return ""
         if n == 1:
             return strs[0]
-        #数组长度是否都是3？
-        #如果是3，可以考虑先比较1和2，再用公共前辍跟3比较
+        # 先比较1和2，再用公共前辍跟其它比较
         common = self.findCommonPrefixInTwoStr(strs[0], strs[1])
         for i in range(2, n):
             common = self.findCommonPrefixInTwoStr(common, strs[i])
         return common
-
 
 if __name__ == "__main__":
     s = Solution()

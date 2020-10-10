@@ -63,15 +63,14 @@ class Solution:
             return 0
 
         sign = False
-        start = 0
+        new_str = ''
         if s[0] == '-':
-            sign = True
+            new_str = new_str + '-'
             start = 1
 
         if s[0] == '+':
             start = 1
 
-        new_str = ''
         for c in s[start:]:
             if (not c.isdigit()):
                 break
@@ -80,9 +79,7 @@ class Solution:
         result = 0
         if new_str != '':
             result = int(new_str)
-        if sign == True:
-            result = -result
-
+            
         if result > 0x7fffffff:
             return 0x7fffffff
         if result < -0x80000000:
