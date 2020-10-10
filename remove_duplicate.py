@@ -70,6 +70,13 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.removeDuplicates([1, 1, 2]))
-    print(s.removeDuplicates([0, 0, 1, 1, 2, 2, 3, 3, 3]))
-    print(s.removeDuplicates([]))
+    l = [1, 1, 2]
+    n = s.removeDuplicates(l)
+    print(l[:n])
+    l = [0, 0, 1, 1, 2, 2, 3, 3, 3]
+    n = s.removeDuplicates(l)
+    print(l[:n])
+    l = []
+    n = s.removeDuplicates(l)
+    print(l[:n])
+
