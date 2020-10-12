@@ -49,3 +49,5 @@ if __name__ == "__main__":
     l = [3, 1, 7, 2, 4, 8, 4]
     m = 6
     print(s.joseph_loop(l, m))
+    m = 8
+    print(s.joseph_loop(l, m))
