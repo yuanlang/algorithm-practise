@@ -87,7 +87,7 @@ class Solution:
 
         return new_list_head
 
-
+import math
 if __name__ == "__main__":
     # expect: [1, 1,, 2, 3, 3, 4]
     s = Solution()
@@ -96,3 +96,8 @@ if __name__ == "__main__":
     l2 = create_linked_list([1, 3, 4])
     print_list_node(l2)
     print_list_node(s.mergeTwoLists(l1, l2))
+
+    n = 298
+    for i in range(1, n + 1):
+        if n % i == 0:
+            print(i)
