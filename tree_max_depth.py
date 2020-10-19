@@ -32,7 +32,7 @@ class TreeNode:
 
 class Solution:
     # 非递归解法
-    def maxDepth(self, root: TreeNode) -> int:
+    def maxDepthNoRecursive(self, root: TreeNode) -> int:
         if root == None:
             return 0
         max_depth = 0
@@ -59,3 +59,17 @@ class Solution:
 
         return max_depth
 
+    # 递归解法
+    def maxDepth(self, root: TreeNode) -> int:
+        if root == None:
+            return 0
+        max_depth = 0
+        #如果为叶子节点，则返回深度为1
+        if root.left == None and root.right == None:
+            return 1
+        if root.left != None:
+            max_depth = max(max_depth, 1 + self.maxDepth(root.left))
+        if root.right != None:
+            max_depth = max(max_depth, 1 + self.maxDepth(root.right))
+
+        return max_depth
