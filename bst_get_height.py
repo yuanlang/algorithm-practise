@@ -24,7 +24,6 @@ class Solution:
 
     # get height of a tree
     def getHeight(self, root):
-        height = 0
         if root == None or \
                 (root.left == None and root.right == None):
             return 0
