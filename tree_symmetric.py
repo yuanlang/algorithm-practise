@@ -34,6 +34,8 @@
 # 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 from collections import deque
+from typing import List
+import math
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -73,7 +75,7 @@ class Solution:
     def isSymmetricRecursive(self, root: TreeNode) -> bool:
         if root == None:
             return True
-        return self.check(root, root)
+        return self.checkRecursive(root, root)
 
     def checkRecursive(self, left, right) -> bool:
         #两个都为空返回true
@@ -83,7 +85,7 @@ class Solution:
         if left == None or right == None:
             return False
         #都不为则空比较当前值以及子树的值
-        return left.val == right.val and self.check(left.left, right.right) and self.check(left.right, right.left)
+        return left.val == right.val and self.checkRecursive(left.left, right.right) and self.checkRecursive(left.right, right.left)
 
     #利用层次遍历，每一层的结果应该都是可逆的
     def isSymmetricLayer(self, root: TreeNode) -> bool:
@@ -133,7 +135,7 @@ class Solution:
         #考虑补齐空余的元素为None
         length = len(val_list)
         end = 2 ** (int(math.log2(length))+1) - 1
-        for i in range(length, end):
+        for _i in range(length, end):
             val_list.append(None)
 
     #利用中序遍历，对比反转后是否与原中序相同来判断
