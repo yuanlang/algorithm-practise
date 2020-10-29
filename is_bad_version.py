@@ -39,7 +39,7 @@ class Solution:
             return False
         return True
 
-    def firstBadVersion(self, n):
+    def firstBadVersionv1(self, n):
         """
         :type n: int
         :rtype: int
@@ -64,6 +64,22 @@ class Solution:
                     return cur_version + 1
                 cur_version = cur_version + step
 
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        left = 1
+        right = n
+        while left < right:
+            # ! ·ÀÖ¹ÕûÊýÒç³ö
+            mid = left + int((right - left) / 2)
+            cur_result = self.isBadVersion(mid)
+            if cur_result == True:
+                right = mid
+            else:
+                left = mid + 1
+        return left
 
 if __name__ == "__main__":
     s = Solution()
