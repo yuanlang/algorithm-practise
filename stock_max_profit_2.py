@@ -97,6 +97,7 @@ class Solution:
         n = len(prices)
         return self.maxProfitRecusive(prices, 0, n)
 
+    # ·å¹È·¨
     def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
         if n < 2:
