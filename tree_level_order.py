@@ -51,8 +51,6 @@ class Solution:
             result_list.append([])
             while len(queue) > 0:
                 cur_node = queue.pop()
-                if cur_node == None:
-                    continue
                 if cur_node.left != None:
                     next_level_queue.appendleft(cur_node.left)
                 if cur_node.right != None:
