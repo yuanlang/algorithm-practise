@@ -12,7 +12,8 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+    def sortedArrayToBSTv1(self, nums: List[int]) -> TreeNode:
+        # 采用中序遍历方法递归构造搜索二叉树
         length = len(nums)
         if length == 0:
             return None
@@ -27,8 +28,23 @@ class Solution:
         root = TreeNode(root_val)
         root.left = self.sortedArrayToBST(nums[0:left+1])
         root.right = self.sortedArrayToBST(nums[right:length])
-        # 采用二分法递归构造搜索二叉树
         return root
+
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        # Helper版本
+        def helper(left, right):
+            if left > right:
+                return None
+
+            #总是选择中间位置左边的数字作为根节点
+            mid = (left + right) // 2
+
+            root = TreeNode(nums[mid])
+            root.left = helper(left, mid - 1)
+            root.right = helper(mid + 1, right)
+            return root
+
+        return helper(0, len(nums) - 1)
 
 def levelOrder(root: TreeNode) -> List[List[int]]:
     # 如何处理层级的问题，可以利用队列为空的特点
