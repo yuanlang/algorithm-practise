@@ -30,6 +30,7 @@ class Solution:
         root.right = self.sortedArrayToBST(nums[right:length])
         return root
 
+    # ¾«¼ò°æ±¾
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
         # Helper°æ±¾
         def helper(left, right):
