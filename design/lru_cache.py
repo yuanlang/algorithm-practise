@@ -25,13 +25,22 @@
 
 from collections import OrderedDict
 
+
+class LastUpdatedOrderedDict(OrderedDict):
+    'Store items in the order the keys were last added'
+
+    def __setitem__(self, key, value):
+        if key in self:
+            del self[key]
+        OrderedDict.__setitem__(self, key, value)
+
 class LRUCache:
 
     def __init__(self, capacity: int):
         #存储容量大小
         self.capacity = capacity
         #存储KV对
-        self.kv_dict = OrderedDict()
+        self.kv_dict = LastUpdatedOrderedDict()
         #当前缓存中的条数
         self.amount = 0
 
@@ -43,7 +52,7 @@ class LRUCache:
         #key存在，则返回值，并更新当前order值为最新值
         ret = self.kv_dict[key]
         #更新词典中顺序
-        value = self.kv_dict.pop(key)
+        value = self.kv_dict[key]
         self.kv_dict[key] = value
 
         return ret
@@ -51,7 +60,6 @@ class LRUCache:
     def put(self, key: int, value: int) -> None:
         #已经存在，直接更新值和最后一次访问时间
         if key in self.kv_dict:
-            self.kv_dict.pop(key)
             self.kv_dict[key] = value
         #不存在，
         #  判断缓存大小，还有缓存，则存入当前key val
@@ -63,7 +71,7 @@ class LRUCache:
                 self.amount -= 1
             self.kv_dict[key] = value
             self.amount += 1
-        # print(self.kv_dict)
+        print(self.kv_dict)
 
 if __name__ == "__main__":
     # Your LRUCache object will be instantiated and called as such:
