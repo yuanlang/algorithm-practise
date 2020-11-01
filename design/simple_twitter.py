@@ -1,6 +1,10 @@
 #!/usr/bin/python
 # -*- coding: GBK -*-
 
+# 注意：
+# 1、异常处理需要详细进行分析和设计，需求里边可能只有正常的部分
+# 2、利用dict加速排序过程
+
 # Twitter twitter = new Twitter();
 
 # // 用户1发送了一条新推文 (用户id = 1, 推文id = 5).
