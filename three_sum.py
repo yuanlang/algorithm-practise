@@ -27,7 +27,7 @@ from typing import List
 
 class Solution:
     # Brute force
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSumV1(self, nums: List[int]) -> List[List[int]]:
         result = []
         sorted_nums = sorted(nums)
         print(sorted_nums)
@@ -44,6 +44,67 @@ class Solution:
                         continue
                     if sorted_nums[i] + sorted_nums[j] + sorted_nums[k] == 0:
                         result.append([sorted_nums[i], sorted_nums[j], sorted_nums[k]])
+        return result
+
+    # 根据要求计算数组中满足条件的集合
+    def twoSum(self, nums: List[int], target: int) -> List[List[int]]:
+        # result = [[-1,2],[0,1]]
+        print(nums)
+        result = []
+        length = len(nums)
+        for i in range(length):
+            #第二个指针
+            j = length - 1
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            while i < j and nums[i] + nums[j] > target:
+                j -= 1
+            if j == i:
+                break
+            if nums[i] + nums[j] == target:
+                result.append([nums[i], nums[j]])
+        print(result)
+        return result
+
+    def threeSumV2(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        sorted_nums = sorted(nums)
+        print(sorted_nums)
+        length = len(sorted_nums)
+        for i in range(length):
+            # if duplicate
+            if i > 0 and sorted_nums[i] == sorted_nums[i - 1]:
+                continue
+            two_sum_set = self.twoSum(sorted_nums[i + 1:], 0 - sorted_nums[i])
+            for item in two_sum_set:
+                result.append([sorted_nums[i]] + item)
+
+        return result
+
+    # V2时间不过，把函数twoSum合入
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        nums.sort()
+        # print(nums)
+        length = len(nums)
+        for i in range(length):
+            # if duplicate
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            target = 0 - nums[i]
+            k = length - 1
+            for j in range(i+1, length):
+                #第二个指针
+                if j > i+1 and nums[j] == nums[j - 1]:
+                    continue
+                while j < k and nums[j] + nums[k] > target:
+                    k -= 1
+                if j == k:
+                    break
+                if nums[j] + nums[k] == target:
+                    result.append(
+                        [nums[i], nums[j], nums[k]])
+
         return result
 
 if __name__ == "__main__":
