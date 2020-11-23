@@ -6,8 +6,8 @@ using namespace std;
 class Solution {
 public:
     //思路：双指针
-    // 一个指针指向当前遍历的元素
-    // 另一个指向当前非重复元素的位置
+    // 快指针，一个指针指向当前遍历的元素
+    // 慢指针，另一个指向当前非重复元素的位置
     int removeDuplicates(vector<int> &nums) {
         //如果数组为空
         if (nums.size() == 0) {
