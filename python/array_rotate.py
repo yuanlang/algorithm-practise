@@ -43,3 +43,20 @@ class Solution:
                 nums[j] = nums[j-1]
             nums[0] = temp
             # print(nums)
+
+if __name__ == "__main__":
+    s = Solution()
+    nums = [1,2,3,4,5,6,7]
+    s.rotate(nums, 3)
+    print(nums)
+    assert nums == [5, 6, 7, 1, 2, 3, 4]
+
+    nums = [1,2,3,4,5,6,7]
+    s.rotate(nums, 4)
+    print(nums)
+    assert nums == [4, 5, 6, 7, 1, 2, 3]
+
+    nums = []
+    s.rotate(nums, 3)
+    print(nums, nums == [], len(nums))
+    assert len(nums) == 0
