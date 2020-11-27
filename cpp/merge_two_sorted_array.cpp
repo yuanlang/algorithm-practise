@@ -116,6 +116,20 @@ void testcase5()
     cout << endl;
 }
 
+//数组A和B都为空
+void testcase6()
+{
+    int a1[3] = {};
+    int a2[] = {};
+    Solution s;
+    s.merge(a1, 3, a2, 0);
+    for (size_t i = 0; i < 0; i++)
+    {
+        cout << a1[i] << " ";
+    }
+    cout << endl;
+}
+
 int main(int argc, char *argv[])
 {
     testcase1();
@@ -123,6 +137,7 @@ int main(int argc, char *argv[])
     testcase3();
     testcase4();
     testcase5();
+    testcase6();
 
     return 0;
 }
