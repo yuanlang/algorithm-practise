@@ -37,7 +37,7 @@ public:
         }
 
         //只考虑拷贝数组B中剩余部分
-        if (cur_b > 0)
+        if (cur_b >= 0)
         {
             for (int i = 0; i < cur_b + 1; i++)
             {
@@ -130,6 +130,20 @@ void testcase6()
     cout << endl;
 }
 
+//数组A和B都只有一个元素
+void testcase7()
+{
+    int a1[2] = {10};
+    int a2[] = {1};
+    Solution s;
+    s.merge(a1, 1, a2, 1);
+    for (size_t i = 0; i < 2; i++)
+    {
+        cout << a1[i] << " ";
+    }
+    cout << endl;
+}
+
 int main(int argc, char *argv[])
 {
     testcase1();
@@ -138,6 +152,7 @@ int main(int argc, char *argv[])
     testcase4();
     testcase5();
     testcase6();
+    testcase7();
 
     return 0;
 }
