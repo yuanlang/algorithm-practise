@@ -42,7 +42,6 @@ class MyStack {
     }
 
     public static void main(String[] args) {
-
         // Your MyStack object will be instantiated and called as such:
         MyStack obj = new MyStack();
         obj.push(1);
